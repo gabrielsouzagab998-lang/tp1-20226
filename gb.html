@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<script>
+
+let  metaCalorias = 2500
+let dias = 7
+
+let dia = 1
+
+let diasQueEngordou = 0
+let diasQueEmagreceu = 0
+let diasQueTreinou = 0
+
+let caloriasDaSemana = []
+let treinoSemana = []
+let resultadoSemana = []
+
+while(dia <= dias){
+alert(`Dia: ${dia}`)
+let caloriasDoDia = Math.floor(Math.random() * 2000) + 1500
+let treinou = Math.random()
+if(treinou > 0.5){
+  caloriasDoDia -= 300
+  alert(`Hoje vc treinou💪`)
+  diasQueTreinou++
+  treinoSemana.push("treinou")
+}else{
+alert(`Hoje vc não treinou😴`)
+treinoSemana.push("Não treinou")
+}
+caloriasDaSemana.push(caloriasDoDia)
+
+if(caloriasDoDia >= 3000)
+{
+  alert(`Hoje vc consumiu ${caloriasDoDia} calorias: vc EXAGEROU🍔!`)
+diasQueEngordou++
+
+}
+else if(caloriasDoDia > metaCalorias) {
+    alert(`Hoje vc consumiu ${caloriasDoDia} calorias: vc engordou🍞`)
+diasQueEngordou++
+resultadoSemana.push("engordou")
+}else{
+alert(`Hoje vc consumiu ${caloriasDoDia} calorias: vc emagreceu🥗`)
+diasQueEmagreceu++
+resultadoSemana.push("emagreceu")
+}
+dia++
+}
+console.log(`\n ------RESULTADO FINAL------`)
+alert(`Vc treinou:${diasQueTreinou} dias`)
+alert(`Vc engordou:${diasQueEngordou} dias`)
+alert(`Vc emagreceu:${diasQueEmagreceu} dias`)
+
+alert(`Calorias da semana: ${caloriasDaSemana}`)
+alert(`Treino da semana: ${treinoSemana}`)
+alert(`Resultado da semana: ${resultadoSemana}`)
+
+alert(diasQueEmagreceu > diasQueEngordou ? `\n ----VC ESTÁ NO CAMINHO CERTO----` : `\n ----VC PRECISA MELHORAR----`)
+
+</script>
+</html>
